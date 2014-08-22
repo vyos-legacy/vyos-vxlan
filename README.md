@@ -35,6 +35,7 @@ delete/create vxlan interface.
 
 ToDo
 ====
+- some configurations under _interfaces vxlan vxlanX_
 - some vxlan attributes (e.g, l2miss, l3miss and more)
 - push to vyos repo ?
 
