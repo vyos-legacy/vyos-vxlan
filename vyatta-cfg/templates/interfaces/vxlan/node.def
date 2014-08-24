@@ -6,7 +6,7 @@ val_help: <vxlanN>; VXLAN interface name
 syntax:expression: pattern $VAR(@) "vxlan[0-9]+$"
 
 commit:expression: $VAR(./group/) != "";	\
-		   "Must configure vxlan multicast-group for $VAR(@)"
+		   "Must configure vxlan group for $VAR(@)"
 commit:expression: $VAR(./vni/) != "";			\
 		   "Must configure vxlan vni for $VAR(@)"
 
@@ -31,9 +31,18 @@ create:
 	$VXLAN_VNI $VXLAN_GROUP $VXLAN_TTL $VXLAN_DEV
   ip link set $VAR(@) up
 
+  touch /tmp/vxlan-$VAR(@)-create
+
+
 delete:
   if [ ! -e /sys/class/net/$VAR(@) ]; then
     echo "VXLAN interface \"$VAR(@)\" does not exist."
   fi
 
   ip link del dev $VAR(@)
+
+
+end:
+  if [ -e /tmp/vxlan-$VAR(@)-create ]; then
+    rm /tmp/vxlan-$VAR(@)-create
+  fi
