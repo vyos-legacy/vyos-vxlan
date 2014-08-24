@@ -11,26 +11,35 @@ How to install
 	 cd vxlan-vyos
 	 sudo cp -r vyatta-cfg /opt/vyatta/share/
 	 sudo cp -r vyatta-op /opt/vyatta/share/
-	 echo vxlan vxlan > /opt/vyatta/etc/netdevice.d/vxlan
+	 sudo echo vxlan vxlan > /opt/vyatta/etc/netdevice.d/vxlan
 
 How to use
 ==========
 
 	 
 	 interfaces {
+	     bridge br0 {
+	     }
 	     ethernet eth0 {
 	         address dhcp
 	     }
 	     loopback lo {
 	     }
 	     vxlan vxlan0 {
-	         group 239.0.0.1
+	         bridge-group {
+	             bridge br0
+		 }
+		 group 239.0.0.1
 	         vni 0
+	     }
+	     vxlan vxlan1 {
+	         address 192.168.0.1/24
+	         dev eth0
+	         group 239.0.0.1
+	         vni 1
 	     }
 	 }
 	 
-And, you can set _dev_ in _vxlan vxlanX_, but change of _dev_ state requires
-delete/create vxlan interface.
 
 
 ToDo
