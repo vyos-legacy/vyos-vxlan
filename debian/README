@@ -1,0 +1,6 @@
+The Debian Package vyos-vxlan
+-------------------------------
+
+This package is has VyOS VXLAN confituration templates and scripts.
+
+ -- Daniil Baturin <daniil@baturin.org>  Thu, 18 Sep 2014 22:51:50 +0200

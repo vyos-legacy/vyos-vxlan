@@ -1,0 +1,6 @@
+vyos-vxlan (1.0.0) unstable; urgency=low
+
+  * Initial release.
+
+ -- Daniil Baturin <daniil@baturin.org>  Thu, 18 Sep 2014 22:51:50 +0200
+
