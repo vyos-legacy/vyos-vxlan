@@ -1,3 +1,9 @@
+vyos-vxlan (1.0.0+vyos1+helium1) unstable; urgency=low
+
+  * Import to VyOS
+
+ -- Daniil Baturin <daniil@baturin.org>  Sat, 20 Sep 2014 07:18:14 +0200
+
 vyos-vxlan (1.0.0) unstable; urgency=low
 
   * Initial release.
